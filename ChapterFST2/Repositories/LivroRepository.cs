@@ -17,7 +17,46 @@ namespace ChapterFST2.Repositories
         //Método para listar os livros presentes no banco de dados.
         public List<Livro> Listar()
         {
-            return _context.Livros.ToList(); //vai conectar com o banco, acessar a tabela Livros, pegar o conteúdo lá presente e devolver os dados obtidos na forma de uma lista
+            return _context.Livros.ToList(); //"_context" é a variável usada para conectar com o banco; irá acessar a tabela Livros, pegar o conteúdo lá presente e devolver os dados obtidos na forma de uma lista
+        }
+
+        //Método BuscarPorId
+        public Livro BuscarPorId(int id)
+        {
+            return _context.Livros.Find(id);
+        }
+
+        //Método para cadastrar um novo livro. O retorno é vazio (void), pois a intenção é enviar um dado, não receber.
+        public void Cadastrar(Livro livro)
+        {
+            _context.Livros.Add(livro);
+
+            _context.SaveChanges(); //para salvar a alteração feita no banco de dados
+        }
+
+        public void Deletar(int id)
+        {
+            Livro livro = _context.Livros.Find(id);
+
+                _context.Remove(livro);
+                _context.SaveChanges();
+            
+        }
+
+        public void Atualizar(int id, Livro livro)
+        {
+            Livro livroBuscado = _context.Livros.Find(id);
+
+            if(livroBuscado != null)
+            {
+                livroBuscado.Titulo = livro.Titulo;
+                livroBuscado.QuantidadePaginas = livro.QuantidadePaginas;
+                livroBuscado.Disponivel = livro.Disponivel;
+            }
+
+            _context.Livros.Update(livroBuscado);
+
+            _context.SaveChanges();
         }
 
     }
