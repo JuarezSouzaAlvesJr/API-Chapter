@@ -24,6 +24,8 @@ namespace ChapterFST2.Contexts
 
         // dbset representa as entidades que serão utilizadas nas operações de leitura, criação, atualização e deleção
         public DbSet<Livro> Livros { get; set; } //faz a conexão entre a classe Livro e a tabela Livros do banco de dados
+
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }
 

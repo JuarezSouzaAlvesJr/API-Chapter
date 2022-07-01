@@ -1,4 +1,5 @@
 using ChapterFST2.Contexts;
+using ChapterFST2.Interfaces;
 using ChapterFST2.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,11 +8,24 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+//Adição do cors com criação de nova política
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", policy => //"CorsPolicy" - nome da política
+    {
+        policy.WithOrigins("http://localhost/3000") //indicação do local de origem que pode consumir a API (apenas essa url é permitida)
+        .AllowAnyHeader() //permitido qualquer header
+        .AllowAnyMethod(); //permitido qualquer método
+    });
+});
+
 //Adição do arquivo ChapterContext.
 builder.Services.AddScoped<ChapterContext, ChapterContext>(); //<nome do serviço, onde ele está implementado> , pois a lógica dele está aplicada nesse mesmo arquivo
 
 //Adição do arquivo LivroRepository.
 builder.Services.AddTransient<LivroRepository, LivroRepository>();
+
+builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -27,6 +41,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("CorsPolicy"); //Geralmente, deve ficar acima do Authorization
 
 app.UseAuthorization();
 

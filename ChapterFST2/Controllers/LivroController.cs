@@ -82,7 +82,7 @@ namespace ChapterFST2.Controllers
             }
         }
 
-        [HttpPut]//Método para alteração
+        [HttpPut("{id}")]//Método para alteração
         public IActionResult Alterar(int id, Livro livro)
         {
             try

@@ -40,7 +40,6 @@ namespace ChapterFST2.Repositories
 
                 _context.Remove(livro);
                 _context.SaveChanges();
-            
         }
 
         public void Atualizar(int id, Livro livro)
