@@ -1,5 +1,6 @@
 ﻿using ChapterFST2.Models;
 using ChapterFST2.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace ChapterFST2.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class LivroController : ControllerBase
     {
         //injeção de dependência (processo semelhante ao feito no arquivo LivroRepository.cs)
@@ -34,6 +36,7 @@ namespace ChapterFST2.Controllers
             }
         }
 
+        [Authorize(Roles = "1")]
         [HttpGet("{id}")]//GET - método de consulta. Não pode haver dois métodos iguais, mas neste aqui foi passado o argumento 'id', o que o torna diferente do método GET anterior. Caso haja dois métodos iguais, é preciso definir uma rota diferente para cada um.
         public IActionResult BuscarPorId(int id)
         {

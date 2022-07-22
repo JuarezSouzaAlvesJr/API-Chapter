@@ -57,3 +57,4 @@ C:\Users\jdeso\Downloads\SENAI 2\UC-14 (Desenvolvimento de Apis)\Chapter(API)\Ch
 C:\Users\jdeso\Downloads\SENAI 2\UC-14 (Desenvolvimento de Apis)\Chapter(API)\ChapterFST2\ChapterFST2\obj\Debug\net6.0\ChapterFST2.pdb
 C:\Users\jdeso\Downloads\SENAI 2\UC-14 (Desenvolvimento de Apis)\Chapter(API)\ChapterFST2\ChapterFST2\obj\Debug\net6.0\ChapterFST2.genruntimeconfig.cache
 C:\Users\jdeso\Downloads\SENAI 2\UC-14 (Desenvolvimento de Apis)\Chapter(API)\ChapterFST2\ChapterFST2\obj\Debug\net6.0\ref\ChapterFST2.dll
+C:\Users\jdeso\Downloads\SENAI 2\UC-14 (Desenvolvimento de Apis)\Chapter(API)\ChapterFST2\ChapterFST2\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
